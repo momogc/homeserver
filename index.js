@@ -6,6 +6,9 @@ var app = express()
 app.get('/', function (req, res) {
     res.sendFile((path.resolve(__dirname, config.staticpath)) + '/index.html')
 })
+app.get('/resume', function (req, res) {
+    res.sendFile(path.join(__dirname, '/resume.pdf'))
+})
 app.use(favicon(path.join(__dirname,'/favicon.ico')))
 app.use(express.static(path.resolve(__dirname, config.staticpath)))
 app.listen(config.port, function () {
